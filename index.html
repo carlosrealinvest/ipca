@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tesouro IPCA+ — Proteja seu dinheiro da inflação | Carlos Maciel</title>
+<meta name="description" content="Material educativo gratuito sobre o Tesouro IPCA+: como funciona, prazos e como avaliar se faz sentido para o seu perfil.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #cb3e47;
+    --red-dark: #b01d2c;
+    --grey-light: #e4e9eb;
+    --off-white: #f5f3ef;
+    --dark: #1a1a1a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    background: var(--off-white);
+    color: var(--dark);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* HEADER */
+  header {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--grey-light);
+  }
+
+  header .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 20px;
+    color: var(--dark);
+  }
+
+  .brand span { color: var(--red); }
+
+  .brand-tag {
+    font-size: 12px;
+    font-weight: 600;
+    color: #6b6b6b;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 64px 0 48px;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 56px;
+    align-items: start;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    background: #fdeceD;
+    color: var(--red-dark);
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 1.15;
+    color: var(--dark);
+    margin-bottom: 20px;
+  }
+
+  h1 em {
+    font-style: normal;
+    color: var(--red);
+  }
+
+  .lead {
+    font-size: 17px;
+    font-weight: 300;
+    color: #444;
+    margin-bottom: 32px;
+    max-width: 480px;
+  }
+
+  .benefits {
+    list-style: none;
+    margin-bottom: 8px;
+  }
+
+  .benefits li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 15px;
+    font-weight: 400;
+    color: #333;
+    margin-bottom: 16px;
+  }
+
+  .benefits li .ico {
+    flex: 0 0 22px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--red);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+
+  /* FORM CARD */
+  .card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 36px 32px;
+    box-shadow: 0 12px 40px rgba(26,26,26,0.08);
+    border: 1px solid var(--grey-light);
+  }
+
+  .card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--dark);
+  }
+
+  .card .card-sub {
+    font-size: 13.5px;
+    color: #777;
+    margin-bottom: 24px;
+  }
+
+  .field {
+    margin-bottom: 16px;
+  }
+
+  .field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 6px;
+  }
+
+  .field input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid var(--grey-light);
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: var(--dark);
+    background: #fafafa;
+    transition: border-color 0.15s ease;
+  }
+
+  .field input:focus {
+    outline: none;
+    border-color: var(--red);
+    background: #fff;
+  }
+
+  .field input.invalid {
+    border-color: var(--red-dark);
+  }
+
+  .field .err {
+    display: none;
+    font-size: 12px;
+    color: var(--red-dark);
+    margin-top: 5px;
+  }
+
+  .field.has-error .err { display: block; }
+  .field.has-error input { border-color: var(--red-dark); }
+
+  .submit-btn {
+    width: 100%;
+    background: var(--red);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 15px 18px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15.5px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.15s ease;
+  }
+
+  .submit-btn:hover { background: var(--red-dark); }
+  .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+  .form-msg {
+    display: none;
+    font-size: 13.5px;
+    margin-top: 14px;
+    padding: 10px 12px;
+    border-radius: 6px;
+  }
+
+  .form-msg.show { display: block; }
+  .form-msg.error { background: #fbe6e8; color: var(--red-dark); }
+
+  .privacy-note {
+    font-size: 11.5px;
+    color: #999;
+    margin-top: 16px;
+    line-height: 1.5;
+  }
+
+  /* EDUCATIONAL SECTION */
+  .edu {
+    padding: 48px 0 56px;
+    border-top: 1px solid var(--grey-light);
+  }
+
+  .edu h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: var(--dark);
+  }
+
+  .edu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .edu-card {
+    background: #fff;
+    border: 1px solid var(--grey-light);
+    border-radius: 10px;
+    padding: 22px;
+  }
+
+  .edu-card .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--red);
+    margin-bottom: 10px;
+  }
+
+  .edu-card h4 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--dark);
+  }
+
+  .edu-card p {
+    font-size: 13.5px;
+    font-weight: 300;
+    color: #555;
+  }
+
+  /* DISCLAIMER + FOOTER */
+  .disclaimer {
+    background: #fff;
+    border-top: 1px solid var(--grey-light);
+    padding: 28px 0;
+  }
+
+  .disclaimer p {
+    font-size: 12px;
+    color: #888;
+    line-height: 1.7;
+    max-width: 860px;
+  }
+
+  footer {
+    padding: 28px 0 40px;
+  }
+
+  footer .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footer-brands {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12.5px;
+    color: #777;
+    font-weight: 600;
+  }
+
+  .footer-brands .dot {
+    width: 4px; height: 4px; border-radius: 50%; background: var(--red);
+  }
+
+  .footer-cta {
+    font-size: 13px;
+    color: var(--red-dark);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  @media (max-width: 860px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+    h1 { font-size: 30px; }
+    .edu-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">Carlos <span>Maciel</span></div>
+    <div class="brand-tag">Real Invest · XP Investimentos</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Material educativo gratuito</span>
+      <h1>O título público pensado para proteger seu dinheiro <em>da inflação</em> no longo prazo</h1>
+      <p class="lead">Entenda como funciona o Tesouro IPCA+, o que é juro real e como avaliar se esse tipo de investimento faz sentido para o seu perfil — sem enrolação, direto ao ponto.</p>
+      <ul class="benefits">
+        <li><span class="ico">✓</span> O que é o Tesouro IPCA+ e como ele funciona na prática</li>
+        <li><span class="ico">✓</span> Diferença entre juro real e inflação — e por que isso importa</li>
+        <li><span class="ico">✓</span> Como funciona a marcação a mercado e o efeito do carrego até o vencimento</li>
+        <li><span class="ico">✓</span> Como identificar se esse perfil de investimento é para você</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Baixe o material completo</h2>
+      <p class="card-sub">Preencha os dados abaixo para receber o PDF gratuito.</p>
+
+      <form id="leadForm" novalidate>
+        <input type="hidden" name="campanha" value="tesouro-ipca-2035">
+
+        <div class="field" id="field-nome">
+          <label for="nome">Nome completo</label>
+          <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+          <span class="err">Informe seu nome.</span>
+        </div>
+
+        <div class="field" id="field-email">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
+          <span class="err">Informe um e-mail válido (com @).</span>
+        </div>
+
+        <div class="field" id="field-telefone">
+          <label for="telefone">Telefone / WhatsApp</label>
+          <input type="tel" id="telefone" name="telefone" placeholder="(79) 99999-9999" maxlength="15" required>
+          <span class="err">Informe um telefone no formato (XX) XXXXX-XXXX.</span>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submitBtn">Quero baixar o material gratuito</button>
+
+        <div class="form-msg error" id="formError">Não foi possível enviar agora. Tente novamente em instantes.</div>
+
+        <p class="privacy-note">Ao enviar, você concorda em receber contato do assessor Carlos Maciel (Real Invest / XP Investimentos). Seus dados não serão compartilhados com terceiros.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="edu">
+  <div class="wrap">
+    <h3>Por que falar sobre Tesouro IPCA+ agora</h3>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="num">01</div>
+        <h4>Proteção contra a inflação</h4>
+        <p>O título paga a variação do IPCA no período mais uma taxa de juro real — seu poder de compra é preservado.</p>
+      </div>
+      <div class="edu-card">
+        <div class="num">02</div>
+        <h4>Juro real em patamar historicamente elevado</h4>
+        <p>Olhando a série histórica desde 2011, o nível atual de juro real esteve presente em poucos momentos — é dado de mercado, não promessa de retorno.</p>
+      </div>
+      <div class="edu-card">
+        <div class="num">03</div>
+        <h4>Carrego até o vencimento</h4>
+        <p>Quem carrega o título até o final não é afetado pelas oscilações de preço no meio do caminho (marcação a mercado).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="disclaimer">
+  <div class="wrap">
+    <p>O investimento em valores mobiliários envolve riscos. Rentabilidade passada não garante resultados futuros. As informações aqui apresentadas têm caráter exclusivamente educativo e não constituem recomendação de investimento. Consulte seu assessor para avaliar se este produto é adequado ao seu perfil.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-brands">
+      <span>Carlos Maciel</span><span class="dot"></span><span>Real Invest</span><span class="dot"></span><span>XP Investimentos</span>
+    </div>
+    <a class="footer-cta" href="https://instagram.com/carlosmaciel.realinvest" target="_blank" rel="noopener">@carlosmaciel.realinvest</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  const form = document.getElementById('leadForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const formError = document.getElementById('formError');
+
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mlgkdbbb';
+  const THANK_YOU_PAGE = 'obrigado.html';
+
+  function maskPhone(value) {
+    let v = value.replace(/\D/g, '').slice(0, 11);
+    if (v.length > 6) {
+      v = '(' + v.slice(0, 2) + ') ' + v.slice(2, 7) + '-' + v.slice(7);
+    } else if (v.length > 2) {
+      v = '(' + v.slice(0, 2) + ') ' + v.slice(2);
+    } else if (v.length > 0) {
+      v = '(' + v;
+    }
+    return v;
+  }
+
+  document.getElementById('telefone').addEventListener('input', function (e) {
+    e.target.value = maskPhone(e.target.value);
+  });
+
+  function setError(fieldId, hasError) {
+    const el = document.getElementById(fieldId);
+    el.classList.toggle('has-error', hasError);
+  }
+
+  function validate() {
+    let valid = true;
+
+    const nome = document.getElementById('nome').value.trim();
+    if (nome.length < 3) {
+      setError('field-nome', true);
+      valid = false;
+    } else {
+      setError('field-nome', false);
+    }
+
+    const email = document.getElementById('email').value.trim();
+    const emailOk = email.includes('@') && email.indexOf('@') > 0 && email.indexOf('@') < email.length - 3;
+    if (!emailOk) {
+      setError('field-email', true);
+      valid = false;
+    } else {
+      setError('field-email', false);
+    }
+
+    const telDigits = document.getElementById('telefone').value.replace(/\D/g, '');
+    if (telDigits.length < 10 || telDigits.length > 11) {
+      setError('field-telefone', true);
+      valid = false;
+    } else {
+      setError('field-telefone', false);
+    }
+
+    return valid;
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    formError.classList.remove('show');
+
+    if (!validate()) return;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Enviando...';
+
+    const formData = new FormData(form);
+
+    fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    })
+      .then(function (response) {
+        if (response.ok) {
+          window.location.href = THANK_YOU_PAGE;
+        } else {
+          throw new Error('Formspree error');
+        }
+      })
+      .catch(function () {
+        formError.classList.add('show');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Quero baixar o material gratuito';
+      });
+  });
+})();
+</script>
+
+</body>
+</html>
